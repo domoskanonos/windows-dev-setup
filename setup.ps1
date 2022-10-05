@@ -30,11 +30,6 @@ If(-Not (test-path $SSH_FILE_PATH) )
 }
 #ssh key pair - end
 
-#certs - start
-Invoke-WebRequest "http://myspace/certificates/ca-bundle.crt" -OutFile (Join-Path $global:CERT_PATH ca-bundle.crt)
-Invoke-WebRequest "http://myspace/java/generic/cacerts" -OutFile (Join-Path $global:CERT_PATH cacerts)
-#certs - end
-
 #vscode - start
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME vscode.zip -ZIP_FILE_URL 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user' -EXTRACT_PATH '$global:EXTRACT_PATH/vscode'"
 #vscode - end
