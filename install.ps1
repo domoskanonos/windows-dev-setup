@@ -4,7 +4,7 @@ If(-Not (test-path $global:INSTALLATION_PATH) )
 {
     New-Item -ItemType Directory -Force -Path $global:INSTALLATION_PATH
 }
-$global:WINDOWS_SETUP_PATH = (Join-Path $global:INSTALLATION_PATH \windows-setup)
+$global:WINDOWS_SETUP_PATH = (Join-Path $global:INSTALLATION_PATH \windows-dev-setup-main)
 If(test-path $global:WINDOWS_SETUP_PATH )
 {
 Remove-Item $global:WINDOWS_SETUP_PATH -Recurse -Force
