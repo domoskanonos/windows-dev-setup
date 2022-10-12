@@ -32,7 +32,7 @@ If(-Not (test-path $SSH_FILE_PATH) )
 
 #vscode - start
 $VS_CODE_PATH = "$global:EXTRACT_PATH/VSCode-win32-x64-1.72.1"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME vscode.zip -ZIP_FILE_URL 'https://vscode-update.azurewebsites.net/1.72.1/win32-x64-archive/stable' -EXTRACT_PATH '$VS_CODE_PATH' -CHECK_PATH '$VS_CODE_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME VSCode-win32-x64-1.72.1 -ZIP_FILE_URL 'https://update.code.visualstudio.com/1.72.1/win32-x64-archive/stable' -EXTRACT_PATH '$VS_CODE_PATH' -CHECK_PATH '$VS_CODE_PATH'"
 #vscode - end
 
 #notepad++ - start
