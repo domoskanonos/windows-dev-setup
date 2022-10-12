@@ -1,6 +1,6 @@
 param ([string] $USER, $USER_EMAIL)
 $global:INSTALLATION_PATH = "C:/dev"
-$global:WINDOWS_SETUP_PATH = "C:/dev/windows-setup"
+$global:WINDOWS_SETUP_PATH = "C:/dev/windows-dev-setup-main"
 $global:DOWNLOAD_PATH = (Join-Path $global:INSTALLATION_PATH \downloads)
 If(-Not (test-path $global:DOWNLOAD_PATH) )
 {
