@@ -42,21 +42,21 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $globa
 
 #git - start
 $GIT_PATH = "$global:EXTRACT_PATH\git-2.26.0.windows.1"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'git-2.26.0.windows.1.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/git/git-2.26.0.windows.1.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$GIT_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$GIT_PATH' -PATH_SUFFIX 'bin'"
-git config --global --unset https.proxy
-git config --global --unset http.proxy
-git config --global http.sslVerify false
-Write-Output "write git user.name $UNUMMER";
-git config --global --replace-all user.name "$UNUMMER"
-Write-Output "write git user.email $USER_EMAIL";
-git config --global --replace-all user.email "$USER_EMAIL"
+#Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'git-2.26.0.windows.1.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/git/git-2.26.0.windows.1.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$GIT_PATH'"
+#Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$GIT_PATH' -PATH_SUFFIX 'bin'"
+#git config --global --unset https.proxy
+#git config --global --unset http.proxy
+#git config --global http.sslVerify false
+#Write-Output "write git user.name $UNUMMER";
+#git config --global --replace-all user.name "$UNUMMER"
+#Write-Output "write git user.email $USER_EMAIL";
+#git config --global --replace-all user.email "$USER_EMAIL"
 #git - end
 
 #node - start
-$NODE_PATH ="$global:EXTRACT_PATH\node-v16.14.2-win-x64"
+$NODE_PATH ="$global:EXTRACT_PATH\node-v16.18.0-win-x64"
 $NPM_PATH = "$NODE_PATH\node_modules\npm\bin"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'node-v16.14.2-win-x64.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/NodeJS/node-v16.14.2-win-x64.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$NODE_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'node-v16.18.0-win-x64.zip' -ZIP_FILE_URL 'https://nodejs.org/dist/v16.18.0/node-v16.18.0-win-x64.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$NODE_PATH'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'NODE_HOME' -VALUE '$NODE_PATH'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$NPM_PATH'"
 #npm config set always-auth false
@@ -66,8 +66,8 @@ npm config set strict-ssl false
 #node - end
 
 # Java - START
-$JAVA_PATH = "$global:EXTRACT_PATH\jdk-17"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'OpenJDK17.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/java/win/OpenJDK17.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$JAVA_PATH'"
+$JAVA_PATH = "$global:EXTRACT_PATH\java-17-openjdk-17.0.3.0.6-1.win.x86_64"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'java-17-openjdk-17.0.3.0.6-1.win.x86_64.zip' -ZIP_FILE_URL 'https://github.com/ojdkbuild/ojdkbuild/releases/download/java-17-openjdk-17.0.3.0.6-1/java-17-openjdk-17.0.3.0.6-1.win.x86_64.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$JAVA_PATH'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'JAVA_HOME' -VALUE '$JAVA_PATH' -PATH_SUFFIX 'bin'"
 # Java - ENDE
 
@@ -78,8 +78,8 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GRADLE_HOME' -VALUE 
 #gradle - start
 
 # maven - START
-$MAVEN_PATH = "$global:EXTRACT_PATH\apache-maven-3.8.1"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'apache-maven-3.8.1-bin.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/apache/maven/apache-maven-3.8.1-bin.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$MAVEN_PATH'"
+$MAVEN_PATH = "$global:EXTRACT_PATH\apache-maven-3.8.6"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'apache-maven-3.8.6-bin.zip' -ZIP_FILE_URL 'https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$MAVEN_PATH'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'MAVEN_HOME' -VALUE '$MAVEN_PATH' -PATH_SUFFIX 'bin'"
 # maven - ENDE
 
