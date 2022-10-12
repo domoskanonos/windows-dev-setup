@@ -61,7 +61,6 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'NODE_HOME' -VALUE '$
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$NPM_PATH'"
 #npm config set always-auth false
 npm config set loglevel verbose
-npm config set registry http://npmrepo.system.local/repository/npm-all/
 npm config set strict-ssl false
 #node - end
 
