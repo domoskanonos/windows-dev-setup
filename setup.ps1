@@ -1,6 +1,6 @@
 param ([string] $USER, $USER_EMAIL)
-$global:INSTALLATION_PATH = "C:/dev";
-$global:WINDOWS_SETUP_PATH = (Join-Path $global:INSTALLATION_PATH \windows-setup)
+$global:INSTALLATION_PATH = "C:/dev"
+$global:WINDOWS_SETUP_PATH = "C:/dev/windows-setup"
 $global:DOWNLOAD_PATH = (Join-Path $global:INSTALLATION_PATH \downloads)
 If(-Not (test-path $global:DOWNLOAD_PATH) )
 {
@@ -31,56 +31,64 @@ If(-Not (test-path $SSH_FILE_PATH) )
 #ssh key pair - end
 
 #vscode - start
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME vscode.zip -ZIP_FILE_URL 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user' -EXTRACT_PATH '$global:EXTRACT_PATH/vscode'"
+$VS_CODE_PATH = "$global:EXTRACT_PATH/vscode"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME vscode.zip -ZIP_FILE_URL 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user' -EXTRACT_PATH '$VS_CODE_PATH' -CHECK_PATH '$VS_CODE_PATH'"
 #vscode - end
 
 #notepad++ - start
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME npp.8.4.5.portable.x64.zip -ZIP_FILE_URL 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.4.5/npp.8.4.5.portable.x64.zip' -EXTRACT_PATH '$global:EXTRACT_PATH/npp'"
+$NOTEPAD_PATH = "$global:EXTRACT_PATH/npp"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME npp.8.4.5.portable.x64.zip -ZIP_FILE_URL 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.4.5/npp.8.4.5.portable.x64.zip' -EXTRACT_PATH '$NOTEPAD_PATH' -CHECK_PATH '$NOTEPAD_PATH'"
 #notepad++ - end
 
 #git - start
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'git-2.26.0.windows.1.zip' -ZIP_FILE_URL 'http://myspace/git/git-2.26.0.windows.1.zip' -EXTRACT_PATH '$global:EXTRACT_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$global:EXTRACT_PATH\git-2.26.0.windows.1' -PATH_SUFFIX 'bin'"
+$GIT_PATH = "$global:EXTRACT_PATH\git-2.26.0.windows.1"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'git-2.26.0.windows.1.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/git/git-2.26.0.windows.1.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$GIT_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$GIT_PATH' -PATH_SUFFIX 'bin'"
 git config --global --unset https.proxy
 git config --global --unset http.proxy
 git config --global http.sslVerify false
-Write-Output "write git user.name $USER";
-git config --global --replace-all user.name "$USER"
+Write-Output "write git user.name $UNUMMER";
+git config --global --replace-all user.name "$UNUMMER"
 Write-Output "write git user.email $USER_EMAIL";
 git config --global --replace-all user.email "$USER_EMAIL"
-$GIT_CERT_PATH = (Join-Path $global:EXTRACT_PATH git-2.26.0.windows.1\mingw64\ssl\certs\ca-bundle.crt)
-Write-Output "copy certifications to git folder: $GIT_CERT_PATH"
-Copy-Item (Join-Path $global:CERT_PATH ca-bundle.crt) -Destination $GIT_CERT_PATH
 #git - end
 
 #node - start
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'node-v16.14.2-win-x64.zip' -ZIP_FILE_URL 'http://myspace/NodeJS/node-v16.14.2-win-x64.zip' -EXTRACT_PATH '$global:EXTRACT_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'NODE_HOME' -VALUE '$global:EXTRACT_PATH\node-v16.14.2-win-x64'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '%NODE_HOME%\node_modules\npm\bin'"
-#npm config set loglevel verbose
-#npm config set strict-ssl false
+$NODE_PATH ="$global:EXTRACT_PATH\node-v16.14.2-win-x64"
+$NPM_PATH = "$NODE_PATH\node_modules\npm\bin"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'node-v16.14.2-win-x64.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/NodeJS/node-v16.14.2-win-x64.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$NODE_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'NODE_HOME' -VALUE '$NODE_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$NPM_PATH'"
 #npm config set always-auth false
-#npm config set strict-ssl false
+npm config set loglevel verbose
+npm config set registry http://npmrepo.system.local/repository/npm-all/
+npm config set strict-ssl false
 #node - end
 
 # Java - START
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'OpenJDK17.zip' -ZIP_FILE_URL 'http://myspace/java/win/OpenJDK17.zip' -EXTRACT_PATH '$global:EXTRACT_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'JAVA_HOME' -VALUE '$global:EXTRACT_PATH\jdk-17' -PATH_SUFFIX 'bin'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'SI_JAVA_HOME_64' -VALUE '$global:EXTRACT_PATH\jdk-17' -PATH_SUFFIX 'bin'"
-$JAVA_CERT_PATH = (Join-Path $global:EXTRACT_PATH jdk-17\lib\security\cacerts)
-Write-Output "copy certifications to java folder: $JAVA_CERT_PATH"
-Copy-Item (Join-Path $global:CERT_PATH cacerts) -Destination $JAVA_CERT_PATH
+$JAVA_PATH = "$global:EXTRACT_PATH\jdk-17"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'OpenJDK17.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/java/win/OpenJDK17.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$JAVA_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'JAVA_HOME' -VALUE '$JAVA_PATH' -PATH_SUFFIX 'bin'"
 # Java - ENDE
 
 #gradle - start
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'gradle-7.5-bin.zip' -ZIP_FILE_URL 'https://services.gradle.org/distributions/gradle-7.5-bin.zip' -EXTRACT_PATH '$global:EXTRACT_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GRADLE_HOME' -VALUE '$global:EXTRACT_PATH\gradle-7.5' -PATH_SUFFIX 'bin'"
+$GRADLE_PATH = "$global:EXTRACT_PATH\gradle-7.5"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'gradle-7.5-bin.zip' -ZIP_FILE_URL 'https://services.gradle.org/distributions/gradle-7.5-bin.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$GRADLE_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GRADLE_HOME' -VALUE '$GRADLE_PATH' -PATH_SUFFIX 'bin'"
 #gradle - start
 
 # maven - START
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'apache-maven-3.8.1-bin.zip' -ZIP_FILE_URL 'http://myspace/apache/maven/apache-maven-3.8.1-bin.zip' -EXTRACT_PATH '$global:EXTRACT_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'MAVEN_HOME' -VALUE '$global:EXTRACT_PATH\apache-maven-3.8.1' -PATH_SUFFIX 'bin'"
+$MAVEN_PATH = "$global:EXTRACT_PATH\apache-maven-3.8.1"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'apache-maven-3.8.1-bin.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/apache/maven/apache-maven-3.8.1-bin.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$MAVEN_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'MAVEN_HOME' -VALUE '$MAVEN_PATH' -PATH_SUFFIX 'bin'"
 # maven - ENDE
+
+#python - START
+$PYTHON_PATH = "$global:EXTRACT_PATH\python-3.10.7-embed-amd64"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'python-3.10.7-embed-amd64.zip' -ZIP_FILE_URL 'https://www.python.org/ftp/python/3.10.7/python-3.10.7-embed-amd64.zip' -EXTRACT_PATH '$PYTHON_PATH' -CHECK_PATH '$PYTHON_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH'"
+pip install virtualenv
+#python - ENDE
 
 # clone repos - START
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/windows-dev-setup.git' -DEST '$global:REPO_PATH\windows-dev-setup'"
