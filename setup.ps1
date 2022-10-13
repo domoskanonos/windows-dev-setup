@@ -43,7 +43,7 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $globa
 #git - start
 $GIT_PATH = "$global:EXTRACT_PATH\MinGit-2.38.0-64"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'MinGit-2.38.0-64-bit.zip' -ZIP_FILE_URL 'https://github.com/git-for-windows/git/releases/download/v2.38.0.windows.1/MinGit-2.38.0-64-bit.zip' -EXTRACT_PATH '$GIT_PATH' -CHECK_PATH '$GIT_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$GIT_PATH' -PATH_SUFFIX 'bin'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$GIT_PATH' -PATH_SUFFIX 'mingw64\bin'"
 git config --global --unset https.proxy
 git config --global --unset http.proxy
 git config --global http.sslVerify false
