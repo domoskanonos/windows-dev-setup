@@ -52,8 +52,8 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$G
 git config --global --unset https.proxy
 git config --global --unset http.proxy
 git config --global http.sslVerify false
-Write-Output "write git user.name $UNUMMER";
-git config --global --replace-all user.name "$UNUMMER"
+Write-Output "write git user.name $USER";
+git config --global --replace-all user.name "$USER"
 Write-Output "write git user.email $USER_EMAIL";
 git config --global --replace-all user.email "$USER_EMAIL"
 #git - end
