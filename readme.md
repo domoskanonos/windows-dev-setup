@@ -14,5 +14,6 @@ Während der Installation wird ein SSH Key generiert, falls noch keiner vorhande
 Dieser kann für die Authentifizierung mit einem Github Account verwendet werden.
 Dazu den Inhalt der Datei ~/.ssh/id_ed25519.pub in die Zwischenablage kopieren und 
 anschließend in dem entsprechenden Github Account unter "Settings-> SSH and GPG keys" einfügen.
+Der Titel ist dabei frei wählbar.
 
 
