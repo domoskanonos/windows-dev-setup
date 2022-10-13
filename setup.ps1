@@ -23,7 +23,12 @@ If(-Not (test-path $global:REPO_PATH) )
 }
 
 #ssh key pair - start
-$SSH_FILE_PATH = "$home\.ssh\id_ed25519";
+$SSH_PATH = "$home\.ssh";
+If(-Not (test-path $SSH_PATH) )
+{
+    New-Item -ItemType Directory -Force -Path $SSH_PATH
+}
+$SSH_FILE_PATH = "$SSH_PATH\id_ed25519";
 If(-Not (test-path $SSH_FILE_PATH) )
 {
     ssh-keygen -t ed25519 -f $SSH_FILE_PATH -N '""' -C "$USER_EMAIL"
