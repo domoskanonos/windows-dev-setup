@@ -56,7 +56,7 @@ Write-Output "write git user.name $USER";
 git config --global --replace-all user.name "$USER"
 Write-Output "write git user.email $USER_EMAIL";
 git config --global --replace-all user.email "$USER_EMAIL"
-#ssh-keyscan github.com >> ~/.ssh/known_hosts
+ssh-keyscan github.com >> ~/.ssh/known_hosts
 #git - end
 
 #node - start
