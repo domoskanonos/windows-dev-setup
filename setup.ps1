@@ -59,7 +59,6 @@ git config --global --replace-all user.email "$USER_EMAIL"
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 #git - end
 
-
 #node - start
 $NODE_PATH ="$global:EXTRACT_PATH\node-v16.18.0-win-x64"
 $NPM_PATH = "$NODE_PATH\node_modules\npm\bin"
