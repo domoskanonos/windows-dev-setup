@@ -33,6 +33,7 @@ If(-Not (test-path $SSH_FILE_PATH) )
 {
     ssh-keygen -t ed25519 -f $SSH_FILE_PATH -N '""' -C "$USER_EMAIL"
 }
+Copy-Item "$global:WINDOWS_SETUP_PATH\config" -Destination "$SSH_PATH" -Recurse -force
 #ssh key pair - end
 
 #vscode - start
@@ -56,7 +57,6 @@ Write-Output "write git user.name $USER";
 git config --global --replace-all user.name "$USER"
 Write-Output "write git user.email $USER_EMAIL";
 git config --global --replace-all user.email "$USER_EMAIL"
-ssh-keyscan github.com >> ~/.ssh/known_hosts
 #git - end
 
 #node - start
