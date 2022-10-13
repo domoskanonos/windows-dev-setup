@@ -1,5 +1,5 @@
 # Beschreibung
-Dieses Projekt ist ein Powershell Script, welches mir bei der Einrichtung meiner Windows-Entwicklerumgebung. Es installiert Tools wie VSCode, Java, Maven, Git und weitere. Es soll mir bei einer Neuinstallation von Windows die Arbeit zur Einrichtung erleichtern.
+Dieses Projekt ist ein Powershell Script, welches mir bei der Einrichtung meiner Windows-Entwicklerumgebung hilft. Es installiert Tools wie VSCode, Java, Maven, Git und weitere. Es soll mir bei einer Neuinstallation von Windows die Arbeit zur Einrichtung erleichtern.
 
 ## Installation
 
