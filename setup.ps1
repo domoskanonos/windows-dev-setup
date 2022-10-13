@@ -42,15 +42,15 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $globa
 
 #git - start
 $GIT_PATH = "$global:EXTRACT_PATH\git-2.26.0.windows.1"
-#Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'git-2.26.0.windows.1.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/git/git-2.26.0.windows.1.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$GIT_PATH'"
-#Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$GIT_PATH' -PATH_SUFFIX 'bin'"
-#git config --global --unset https.proxy
-#git config --global --unset http.proxy
-#git config --global http.sslVerify false
-#Write-Output "write git user.name $UNUMMER";
-#git config --global --replace-all user.name "$UNUMMER"
-#Write-Output "write git user.email $USER_EMAIL";
-#git config --global --replace-all user.email "$USER_EMAIL"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'git-2.26.0.windows.1.zip' -ZIP_FILE_URL 'https://spu.system.local/dezentral/git/git-2.26.0.windows.1.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$GIT_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$GIT_PATH' -PATH_SUFFIX 'bin'"
+git config --global --unset https.proxy
+git config --global --unset http.proxy
+git config --global http.sslVerify false
+Write-Output "write git user.name $UNUMMER";
+git config --global --replace-all user.name "$UNUMMER"
+Write-Output "write git user.email $USER_EMAIL";
+git config --global --replace-all user.email "$USER_EMAIL"
 #git - end
 
 #node - start
@@ -83,10 +83,10 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'MAVEN_HOME' -VALUE '
 # maven - ENDE
 
 #python - START
-$PYTHON_PATH = "$global:EXTRACT_PATH\python-3.10.7-embed-amd64"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'python-3.10.7-embed-amd64.zip' -ZIP_FILE_URL 'https://www.python.org/ftp/python/3.10.7/python-3.10.7-embed-amd64.zip' -EXTRACT_PATH '$PYTHON_PATH' -CHECK_PATH '$PYTHON_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH'"
-pip install virtualenv
+#$PYTHON_PATH = "$global:EXTRACT_PATH\python-3.10.7-embed-amd64"
+#Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'python-3.10.7-embed-amd64.zip' -ZIP_FILE_URL 'https://www.python.org/ftp/python/3.10.7/python-3.10.7-embed-amd64.zip' -EXTRACT_PATH '$PYTHON_PATH' -CHECK_PATH '$PYTHON_PATH'"
+#Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH'"
+#pip install virtualenv
 #python - ENDE
 
 # clone repos - START
