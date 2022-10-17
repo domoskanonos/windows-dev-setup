@@ -46,11 +46,6 @@ $NOTEPAD_PATH = "$global:EXTRACT_PATH/npp"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME npp.8.4.5.portable.x64.zip -ZIP_FILE_URL 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.4.5/npp.8.4.5.portable.x64.zip' -EXTRACT_PATH '$NOTEPAD_PATH' -CHECK_PATH '$NOTEPAD_PATH'"
 #notepad++ - end
 
-#winscp - start
-$WINSCP_PATH = "$global:EXTRACT_PATH/WinSCP-5.21.5-Portable"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME WinSCP-5.21.5-Portable.zip -ZIP_FILE_URL 'https://winscp.net/download/files/202210171646592c547c034185b8000672db1036c6cd/WinSCP-5.21.5-Portable.zip' -EXTRACT_PATH '$WINSCP_PATH' -CHECK_PATH '$WINSCP_PATH'"
-#winscp - end
-
 #git - start
 $GIT_PATH = "$global:EXTRACT_PATH\MinGit-2.38.0-64"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'MinGit-2.38.0-64-bit.zip' -ZIP_FILE_URL 'https://github.com/git-for-windows/git/releases/download/v2.38.0.windows.1/MinGit-2.38.0-64-bit.zip' -EXTRACT_PATH '$GIT_PATH' -CHECK_PATH '$GIT_PATH'"
