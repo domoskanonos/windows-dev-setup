@@ -3,10 +3,6 @@ $global:INSTALLATION_PATH = $INSTALLATION_PATH
 $global:WINDOWS_SETUP_PATH = $WINDOWS_SETUP_PATH
 $global:DOWNLOAD_PATH = (Join-Path $global:INSTALLATION_PATH \downloads)
 
-
-exit
-
-
 If(-Not (test-path $global:DOWNLOAD_PATH) )
 {
     New-Item -ItemType Directory -Force -Path $DOWNLOAD_PATH
