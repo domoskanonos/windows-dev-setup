@@ -38,17 +38,17 @@ Copy-Item "$global:WINDOWS_SETUP_PATH\config" -Destination "$SSH_PATH" -Recurse 
 
 #putty - start
 $PUTTY_PATH = "$global:EXTRACT_PATH/putty"
-#Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME putty.zip -ZIP_FILE_URL 'https://the.earth.li/~sgtatham/putty/latest/w64/putty.zip' -EXTRACT_PATH '$PUTTY_PATH' -CHECK_PATH '$PUTTY_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME putty.zip -ZIP_FILE_URL 'https://the.earth.li/~sgtatham/putty/latest/w64/putty.zip' -EXTRACT_PATH '$PUTTY_PATH' -CHECK_PATH '$PUTTY_PATH'"
 #putty - end
 
 #vscode - start
 $VS_CODE_PATH = "$global:EXTRACT_PATH/VSCode-win32-x64-1.72.1"
-#Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME VSCode-win32-x64-1.72.1.zip -ZIP_FILE_URL 'https://update.code.visualstudio.com/1.72.1/win32-x64-archive/stable' -EXTRACT_PATH '$VS_CODE_PATH' -CHECK_PATH '$VS_CODE_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME VSCode-win32-x64-1.72.1.zip -ZIP_FILE_URL 'https://update.code.visualstudio.com/1.72.1/win32-x64-archive/stable' -EXTRACT_PATH '$VS_CODE_PATH' -CHECK_PATH '$VS_CODE_PATH'"
 #vscode - end
 
 #notepad++ - start
 $NOTEPAD_PATH = "$global:EXTRACT_PATH/npp"
-#Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME npp.8.4.5.portable.x64.zip -ZIP_FILE_URL 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.4.5/npp.8.4.5.portable.x64.zip' -EXTRACT_PATH '$NOTEPAD_PATH' -CHECK_PATH '$NOTEPAD_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME npp.8.4.5.portable.x64.zip -ZIP_FILE_URL 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.4.5/npp.8.4.5.portable.x64.zip' -EXTRACT_PATH '$NOTEPAD_PATH' -CHECK_PATH '$NOTEPAD_PATH'"
 #notepad++ - end
 
 #git - start
@@ -63,12 +63,6 @@ git config --global --replace-all user.name "$USER"
 Write-Output "write git user.email $USER_EMAIL";
 git config --global --replace-all user.email "$USER_EMAIL"
 #git - end
-
-
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/windows-dev-setup.git' -DEST '$global:REPO_PATH\windows-dev-setup' -CHANGE_REPO 'git@github.com:koshisinthehouse/windows-dev-setup.git'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/replacerboy.git' -DEST '$global:REPO_PATH\windows-dev-setup' -CHANGE_REPO 'git@github.com:koshisinthehouse/replacerboy.git'"
-
-
 #node - start
 $NODE_PATH ="$global:EXTRACT_PATH\node-v16.18.0-win-x64"
 $NPM_PATH = "$NODE_PATH\node_modules\npm\bin"
