@@ -8,8 +8,9 @@ If(-Not (test-path $DEST) ) {
         cd $DEST
         echo "destination: $CHANGE_REPO"
         git remote set-url origin $CHANGE_REPO
-        echo "destination: $DEST"
+        echo "current: ([System.Environment]::CurrentDirectory)"
         
         cd $currentDirectory
-    }    
+          echo "current 2: ([System.Environment]::CurrentDirectory)"
+  }    
 }
