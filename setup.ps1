@@ -102,6 +102,6 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'MAVEN_HOME' -VALUE '
 
 # clone repos - START
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/windows-dev-setup.git' -DEST '$global:REPO_PATH\windows-dev-setup' -CHANGE_REPO 'git@github.com:koshisinthehouse/windows-dev-setup.git'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/replacerboy.git' -DEST '$global:REPO_PATH\windows-dev-setup' -CHANGE_REPO 'git@github.com:koshisinthehouse/replacerboy.git'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/homeserver.git' -DEST '$global:REPO_PATH\windows-dev-setup' -CHANGE_REPO 'git@github.com:koshisinthehouse/homeserver.git'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/replacerboy.git' -DEST '$global:REPO_PATH\replacerboy' -CHANGE_REPO 'git@github.com:koshisinthehouse/replacerboy.git'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/homeserver.git' -DEST '$global:REPO_PATH\homeserver' -CHANGE_REPO 'git@github.com:koshisinthehouse/homeserver.git'"
 # clone repos - END
