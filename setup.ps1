@@ -66,6 +66,7 @@ git config --global --replace-all user.email "$USER_EMAIL"
 
 
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/windows-dev-setup.git' -DEST '$global:REPO_PATH\windows-dev-setup' -CHANGE_REPO 'git@github.com:koshisinthehouse/windows-dev-setup.git'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\gitClone.ps1 -REPOSITORY 'https://github.com/koshisinthehouse/replacerboy.git' -DEST '$global:REPO_PATH\windows-dev-setup' -CHANGE_REPO 'git@github.com:koshisinthehouse/replacerboy.git'"
 
 
 #node - start
