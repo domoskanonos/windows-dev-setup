@@ -24,7 +24,13 @@ If(-Not (test-path $global:REPO_PATH) )
 }
 
 #ssh - start
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\ssh.ps1 -FILENAME koshisinthehouse -EMAIL koshisinthehouse@googlemail.com"
+$SSH_PATH = "$home\.ssh";
+If(-Not (test-path $SSH_PATH) )
+{
+    New-Item -ItemType Directory -Force -Path $SSH_PATH
+    Copy-Item "$global:WINDOWS_SETUP_PATH\config" -Destination "$SSH_PATH" -Recurse -force
+}
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\ssh.ps1 -FILENAME $SSH_PATH/koshisinthehouse -EMAIL koshisinthehouse@googlemail.com"
 #ssh - end
 
 #putty - start
