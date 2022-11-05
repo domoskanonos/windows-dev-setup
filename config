@@ -1,3 +1,5 @@
 Host github.com
+  IdentityFile ~/.ssh/id_koshisinthehouse
+  IdentityFile ~/.ssh/id_domoskanonos
   StrictHostKeyChecking no
   UserKnownHostsFile ~/.ssh/known_hosts
