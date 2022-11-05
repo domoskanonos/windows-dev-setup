@@ -23,19 +23,9 @@ If(-Not (test-path $global:REPO_PATH) )
     New-Item -ItemType Directory -Force -Path $global:REPO_PATH
 }
 
-#ssh key pair - start
-$SSH_PATH = "$home\.ssh";
-If(-Not (test-path $SSH_PATH) )
-{
-    New-Item -ItemType Directory -Force -Path $SSH_PATH
-}
-$SSH_FILE_PATH = "$SSH_PATH\koshisinthehouse";
-If(-Not (test-path $SSH_FILE_PATH) )
-{
-    ssh-keygen -t ed25519 -f $SSH_FILE_PATH -N '""' -C "koshisinthehouse@googlemail.com"
-}
-Copy-Item "$global:WINDOWS_SETUP_PATH\config" -Destination "$SSH_PATH" -Recurse -force
-#ssh key pair - end
+#ssh - start
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\ssh.ps1 -FILENAME koshisinthehouse -EMAIL koshisinthehouse@googlemail.com"
+#ssh - end
 
 #putty - start
 $PUTTY_PATH = "$global:EXTRACT_PATH/putty"
