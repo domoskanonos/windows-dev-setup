@@ -29,10 +29,10 @@ If(-Not (test-path $SSH_PATH) )
 {
     New-Item -ItemType Directory -Force -Path $SSH_PATH
 }
-$SSH_FILE_PATH = "$SSH_PATH\id_ed25519";
+$SSH_FILE_PATH = "$SSH_PATH\koshisinthehouse";
 If(-Not (test-path $SSH_FILE_PATH) )
 {
-    ssh-keygen -t ed25519 -f $SSH_FILE_PATH -N '""' -C "$USER_EMAIL"
+    ssh-keygen -t ed25519 -f $SSH_FILE_PATH -N '""' -C "koshisinthehouse@googlemail.com"
 }
 Copy-Item "$global:WINDOWS_SETUP_PATH\config" -Destination "$SSH_PATH" -Recurse -force
 #ssh key pair - end
@@ -59,10 +59,10 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$G
 git config --global --unset https.proxy
 git config --global --unset http.proxy
 git config --global http.sslVerify false
-Write-Output "write git user.name $USER";
-git config --global --replace-all user.name "$USER"
-Write-Output "write git user.email $USER_EMAIL";
-git config --global --replace-all user.email "$USER_EMAIL"
+#Write-Output "write git user.name $USER";
+#git config --global --replace-all user.name "$USER"
+#Write-Output "write git user.email $USER_EMAIL";
+#git config --global --replace-all user.email "$USER_EMAIL"
 #git - end
 #node - start
 $NODE_PATH ="$global:EXTRACT_PATH\node-v16.18.0-win-x64"
