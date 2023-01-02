@@ -66,7 +66,8 @@ $NODE_PATH ="$global:EXTRACT_PATH\node-v16.18.0-win-x64"
 $NPM_PATH = "$NODE_PATH\node_modules\npm\bin"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'node-v16.18.0-win-x64.zip' -ZIP_FILE_URL 'https://nodejs.org/dist/v16.18.0/node-v16.18.0-win-x64.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$NODE_PATH'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'NODE_HOME' -VALUE '$NODE_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$NPM_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$NPM_PATH' -TYPE 'User'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$NPM_PATH' -TYPE 'Machine'"
 #npm config set always-auth false
 npm config set loglevel verbose
 npm config set strict-ssl false
@@ -94,7 +95,8 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GRADLE_HOME' -VALUE 
 #python - START
 $PYTHON_PATH = "$global:EXTRACT_PATH\python-3.11.1-embed-amd64"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'python-3.11.1-embed-amd64.zip' -ZIP_FILE_URL 'https://www.python.org/ftp/python/3.11.1/python-3.11.1-embed-amd64.zip' -EXTRACT_PATH '$PYTHON_PATH' -CHECK_PATH '$PYTHON_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH' -TYPE 'User'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH' -TYPE 'Machine'"
 #pip install virtualenv
 #python - ENDE
 
