@@ -85,9 +85,10 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GRADLE_HOME' -VALUE 
 #gradle - start
 
 # maven - START
-$MAVEN_PATH = "$global:EXTRACT_PATH\apache-maven-3.8.6"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'apache-maven-3.8.6-bin.zip' -ZIP_FILE_URL 'https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$MAVEN_PATH'"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'MAVEN_HOME' -VALUE '$MAVEN_PATH' -PATH_SUFFIX 'bin'"
+#URL NOT WORKING ANYMORE
+#$MAVEN_PATH = "$global:EXTRACT_PATH\apache-maven-3.8.6"
+#Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'apache-maven-3.8.6-bin.zip' -ZIP_FILE_URL 'https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$MAVEN_PATH'"
+#Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'MAVEN_HOME' -VALUE '$MAVEN_PATH' -PATH_SUFFIX 'bin'"
 # maven - ENDE
 
 #python - START
