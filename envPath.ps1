@@ -1,5 +1,5 @@
 param ([string] $PATH)
-$envPath = [Environment]::GetEnvironmentVariable('Path', 'User');
+$envPath = [Environment]::GetEnvironmentVariable('Path', 'Machine');
 if(-Not $envPath.Contains("$PATH")){
     Write-Output "add to env path, value: $PATH"
     [System.Environment]::SetEnvironmentVariable("Path", $envPath + ";$PATH", "Machine")
