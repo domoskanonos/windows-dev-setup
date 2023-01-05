@@ -99,7 +99,7 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$glob
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH' -TYPE 'User'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH' -TYPE 'Machine'"
 
-Copy-Item "$global:WINDOWS_SETUP_PATH\python311._pth" -Destination "$PYTHON_PATH"
+Copy-Item "$global:WINDOWS_SETUP_PATH\python310._pth" -Destination "$PYTHON_PATH"
 
 Invoke-Expression "python --version"
 
