@@ -94,8 +94,8 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GRADLE_HOME' -VALUE 
 
 #python - START
 
-$PYTHON_PATH = "$global:EXTRACT_PATH\python-3.11.1-embed-amd64"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'python-3.11.1-embed-amd64.zip' -ZIP_FILE_URL 'https://www.python.org/ftp/python/3.11.1/python-3.11.1-embed-amd64.zip' -EXTRACT_PATH '$PYTHON_PATH' -CHECK_PATH '$PYTHON_PATH'"
+$PYTHON_PATH = "$global:EXTRACT_PATH\python-3.10.0-embed-amd64"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'python-3.10.0-embed-amd64.zip' -ZIP_FILE_URL 'https://www.python.org/ftp/python/3.10.0/python-3.10.0-embed-amd64.zip' -EXTRACT_PATH '$PYTHON_PATH' -CHECK_PATH '$PYTHON_PATH'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH' -TYPE 'User'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH' -TYPE 'Machine'"
 
