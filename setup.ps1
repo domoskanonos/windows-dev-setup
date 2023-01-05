@@ -93,11 +93,25 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GRADLE_HOME' -VALUE 
 # maven - ENDE
 
 #python - START
+
 $PYTHON_PATH = "$global:EXTRACT_PATH\python-3.11.1-embed-amd64"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'python-3.11.1-embed-amd64.zip' -ZIP_FILE_URL 'https://www.python.org/ftp/python/3.11.1/python-3.11.1-embed-amd64.zip' -EXTRACT_PATH '$PYTHON_PATH' -CHECK_PATH '$PYTHON_PATH'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH' -TYPE 'User'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_PATH' -TYPE 'Machine'"
-#pip install virtualenv
+
+Copy-Item "$global:WINDOWS_SETUP_PATH\python311._pth" -Destination "$PYTHON_PATH"
+
+Invoke-Expression "python --version"
+
+$PYTHON_SCRIPT_PATH = "$PYTHON_PATH\Scripts"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_SCRIPT_PATH' -TYPE 'User'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$PYTHON_SCRIPT_PATH' -TYPE 'Machine'"
+
+Invoke-WebRequest "https://bootstrap.pypa.io/get-pip.py" -OutFile ./get-pip.py
+Invoke-Expression "$PYTHON_PATH\python get-pip.py"
+
+Invoke-Expression "pip -V"
+
 #python - ENDE
 
 # clone repos - START
