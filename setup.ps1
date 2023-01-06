@@ -55,7 +55,7 @@ Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$glob
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'GIT_HOME' -VALUE '$GIT_PATH\mingw64' -PATH_SUFFIX 'bin'"
 git config --global --unset https.proxy
 git config --global --unset http.proxy
-git config --global http.sslVerify false
+git config --global http.sslVerify true
 #Write-Output "write git user.name $USER";
 #git config --global --replace-all user.name "$USER"
 #Write-Output "write git user.email $USER_EMAIL";
