@@ -1,5 +1,17 @@
-Host github.com
-  IdentityFile ~/.ssh/id_koshisinthehouse
-  IdentityFile ~/.ssh/id_domoskanonos
-  StrictHostKeyChecking no
-  UserKnownHostsFile ~/.ssh/known_hosts
+# domoskanonos account
+Host domoskanonos
+HostName github.com
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_domoskanonos
+	StrictHostKeyChecking no
+	UserKnownHostsFile ~/.ssh/known_hosts
+
+# koshisinthehouse account
+Host koshisinthehouse
+HostName github.com
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_koshisinthehouse
+	StrictHostKeyChecking no
+	UserKnownHostsFile ~/.ssh/known_hosts
+  
+# usage: modify git@github.com:domoskanonos/foorepo.git to git@company:domoskanonos/foorepo.git
