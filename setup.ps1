@@ -39,11 +39,6 @@ $PUTTY_PATH = "$global:EXTRACT_PATH/putty"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME putty.zip -ZIP_FILE_URL 'https://the.earth.li/~sgtatham/putty/latest/w64/putty.zip' -EXTRACT_PATH '$PUTTY_PATH' -CHECK_PATH '$PUTTY_PATH'"
 #putty - end
 
-#vscode - start
-$VS_CODE_PATH = "$global:EXTRACT_PATH/VSCode-win32-x64-1.72.1"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME VSCode-win32-x64-1.72.1.zip -ZIP_FILE_URL 'https://update.code.visualstudio.com/1.72.1/win32-x64-archive/stable' -EXTRACT_PATH '$VS_CODE_PATH' -CHECK_PATH '$VS_CODE_PATH'"
-#vscode - end
-
 #notepad++ - start
 $NOTEPAD_PATH = "$global:EXTRACT_PATH/npp"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH $global:DOWNLOAD_PATH -ZIP_FILE_NAME npp.8.4.5.portable.x64.zip -ZIP_FILE_URL 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.4.5/npp.8.4.5.portable.x64.zip' -EXTRACT_PATH '$NOTEPAD_PATH' -CHECK_PATH '$NOTEPAD_PATH'"
