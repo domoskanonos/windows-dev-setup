@@ -59,7 +59,7 @@ git config --global http.sslVerify true
 #node - start
 $NODE_PATH ="$global:EXTRACT_PATH\node"
 $NPM_PATH = "$NODE_PATH\node_modules\npm\bin"
-Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'node-v19.4.0-win-x64.zip' -ZIP_FILE_URL 'https://nodejs.org/dist/latest-v19.x/node-v19.4.0-win-x64.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$NODE_PATH'"
+Invoke-Expression "$global:WINDOWS_SETUP_PATH\download.ps1 -DOWNLOAD_PATH '$global:DOWNLOAD_PATH' -ZIP_FILE_NAME 'node-v19.4.0-win-x64.zip' -ZIP_FILE_URL 'https://nodejs.org/dist/v19.4.0/node-v19.4.0-win-x64.zip' -EXTRACT_PATH '$global:EXTRACT_PATH' -CHECK_PATH '$NODE_PATH'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\env.ps1 -KEY 'NODE_HOME' -VALUE '$NODE_PATH'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$NPM_PATH' -TYPE 'User'"
 Invoke-Expression "$global:WINDOWS_SETUP_PATH\envPath.ps1 -PATH '$NPM_PATH' -TYPE 'Machine'"
